@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Background Colors */
+    --color-background: #020617; /* slate-950 */
+    --color-foreground: #F8FAFC; /* slate-50 */
+    --color-card: #0F172A; /* slate-900 */
+    --color-card-foreground: #F8FAFC; /* slate-50 */
+    --color-popover: #1E293B; /* slate-800 */
+    --color-popover-foreground: #F8FAFC; /* slate-50 */
+    
+    /* Primary Brand Colors */
+    --color-primary: #6366F1; /* indigo-500 */
+    --color-primary-foreground: #FFFFFF; /* white */
+    --color-secondary: #8B5CF6; /* violet-500 */
+    --color-secondary-foreground: #FFFFFF; /* white */
+    
+    /* Accent & Interactive Colors */
+    --color-accent: #3B82F6; /* blue-500 */
+    --color-accent-foreground: #FFFFFF; /* white */
+    --color-muted: #334155; /* slate-700 */
+    --color-muted-foreground: #94A3B8; /* slate-400 */
+    
+    /* Semantic Status Colors */
+    --color-success: #10B981; /* emerald-500 */
+    --color-success-foreground: #FFFFFF; /* white */
+    --color-warning: #F59E0B; /* amber-500 */
+    --color-warning-foreground: #FFFFFF; /* white */
+    --color-error: #EF4444; /* red-500 */
+    --color-error-foreground: #FFFFFF; /* white */
+    --color-destructive: #EF4444; /* red-500 */
+    --color-destructive-foreground: #FFFFFF; /* white */
+    
+    /* Conversion & CTA Colors */
+    --color-conversion: #10B981; /* emerald-500 */
+    --color-conversion-foreground: #FFFFFF; /* white */
+    --color-cta-secondary: #F59E0B; /* amber-500 */
+    --color-cta-secondary-foreground: #FFFFFF; /* white */
+    
+    /* UI Element Colors */
+    --color-border: rgba(255, 255, 255, 0.1); /* white with opacity */
+    --color-input: #1E293B; /* slate-800 */
+    --color-ring: #6366F1; /* indigo-500 */
+    
+    /* Surface & Elevation Colors */
+    --color-surface: #334155; /* slate-700 */
+    --color-surface-foreground: #F8FAFC; /* slate-50 */
+    
+    /* Typography Scale */
+    --font-headline: 'JetBrains Mono', monospace;
+    --font-body: 'Inter', sans-serif;
+    --font-cta: 'Poppins', sans-serif;
+    --font-accent: 'Fira Code', monospace;
+    
+    /* Spacing System - 8px base unit with golden ratio */
+    --spacing-xs: 0.5rem; /* 8px */
+    --spacing-sm: 0.75rem; /* 12px */
+    --spacing-base: 1rem; /* 16px */
+    --spacing-md: 1.5rem; /* 24px */
+    --spacing-lg: 2rem; /* 32px */
+    --spacing-xl: 3rem; /* 48px */
+    --spacing-2xl: 4rem; /* 64px */
+    
+    /* Border Radius */
+    --radius-sm: 0.25rem; /* 4px */
+    --radius-base: 0.5rem; /* 8px */
+    --radius-md: 0.75rem; /* 12px */
+    --radius-lg: 1rem; /* 16px */
+    --radius-xl: 1.5rem; /* 24px */
+    
+    /* Animation Timing */
+    --transition-fast: 150ms;
+    --transition-base: 300ms;
+    --transition-slow: 500ms;
+    --ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline;
+  }
+  
+  button {
+    @apply font-cta;
+  }
+  
+  code, pre {
+    @apply font-accent;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glassmorphism {
+    background: rgba(15, 23, 42, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .gradient-border {
+    position: relative;
+  }
+  
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+  
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+  
+  .animate-fade-in-delay {
+    animation: fadeIn 0.5s ease-out 0.2s both;
+  }
+  
+  .animate-slide-in-from-top {
+    animation: slideInFromTop 0.3s ease-out;
+  }
+  
+  .animate-bounce-slow {
+    animation: bounceSlow 2s infinite;
+  }
+  
+  .animate-pulse-slow {
+    animation: pulseSlow 3s ease-in-out infinite;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideInFromTop {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes bounceSlow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  
+  @keyframes pulseSlow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+}
