@@ -71,7 +71,7 @@ const Header = ({ className = '' }: HeaderProps) => {
                   height="40"
                   viewBox="0 0 40 40"
                   fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns="http://www.w3.org/2000"
                   className="transition-transform duration-base group-hover:scale-110"
                 >
                   <rect
@@ -103,8 +103,8 @@ const Header = ({ className = '' }: HeaderProps) => {
                 </svg>
               </div>
               <div className="hidden sm:block">
-                <span className="text-xl font-headline font-bold text-foreground group-hover:text-primary transition-colors duration-base">
-                  DataDev
+              <span className="text-xl font-headline font-bold text-foreground group-hover:text-primary transition-colors duration-base">      
+               Tiago Silva
                 </span>
                 <span className="block text-xs text-muted-foreground font-body">
                   Portfolio
