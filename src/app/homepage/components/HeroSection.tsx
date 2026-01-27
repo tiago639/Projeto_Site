@@ -128,7 +128,8 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
               </button>
             </div>
 
-            <div className="flex items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-3 sm:pt-4">
+            {/* ADICIONADO pb-12 (48px) no mobile para dar espaço para a seta */}
+            <div className="flex items-center gap-4 sm:gap-6 justify-center lg:justify-start pt-3 sm:pt-4 pb-12 sm:pb-0">
               <a
                 href="https://github.com/tiago639"
                 target="_blank"
@@ -228,10 +229,11 @@ const HeroSection = ({ className = '' }: HeroSectionProps) => {
           </div>
         </div>
 
-        <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+        {/* SETA AJUSTADA: bottom-12 no mobile, bottom-20 no sm+ */}
+        <div className="absolute bottom-25 sm:bottom-20 left-1/2 -translate-x-1/2 z-30 animate-bounce">
           <button
             onClick={() => scrollToSection('sobre')}
-            className="p-2 sm:p-3 bg-card border border-border rounded-full text-muted-foreground hover:text-foreground hover:border-primary hover:shadow-elevation-md transition-all duration-base"
+            className="p-3 sm:p-4 bg-card border border-border rounded-full text-muted-foreground hover:text-foreground hover:border-primary hover:shadow-elevation-md hover:scale-110 transition-all duration-300 shadow-lg"
             aria-label="Scroll to About Section"
           >
             <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
